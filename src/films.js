@@ -37,7 +37,20 @@ function moviesAverageOfDirector(array, director) {
 }
 
 // Exercise 4:  Alphabetic order by title
-function orderAlphabetically(array) {}
+function orderAlphabetically(array) {
+
+  //clone the array, we need to put the spread operator to 
+  //duplicate it and do't modificate the old one, then sort it
+  const moviesClone = [...array];
+  const orderedFilms = moviesClone.sort((movieA, movieB)=> 
+    movieA.title.localeCompare(movieB.title)
+  );
+  //creating an array with just the film titles and picking only 20
+  let result = (orderedFilms.map((movies) => movies.title)).slice(0,20);
+  console.log('EXERCICE 4 ->', result);
+  return result;
+  
+}
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {}
