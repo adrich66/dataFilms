@@ -120,8 +120,13 @@ function hoursToMinutes(array) {
 
 // Level 3 -> Exercise 8: Get the best film of a year
 function bestFilmOfYear(array, year) {
-
-  let result = [];
+  //filter to obtain a new array with the year that we passed 
+  let filtered = array.filter(movie => movie.year == year);
+  //selection of the highest scored movie
+  let selected = filtered.sort((movieA, movieB) => movieB.score - movieA.score);
+  //make an array object with the best one, that it'll be on 0 position
+  let result = [selected[0]];
+  
   console.log('EXERCICE 8 ->', result);
   return result;
 }
