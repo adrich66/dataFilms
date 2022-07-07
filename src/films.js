@@ -57,7 +57,7 @@ function orderByYear(array) {
 
   //repeat the same than 4th to have an array ordered per name
   const moviesClone = [...array];
-  //with a difference, the coditions
+  //with a difference, the coditions for errors with strings
   const orderedFilms = moviesClone.sort((movieA, movieB) => {
     if (movieA.title > movieB.title) return 1;
     if (movieA.title < movieB.title) return -1;
@@ -89,12 +89,42 @@ function moviesAverageByCategory(array, genre) {
   return result;
 }
 
-//Level 2!!
-// Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {}
 
-// Exercise 8: Get the best film of a year
-function bestFilmOfYear() {}
+//Level 2 -> Exercise 7: Modify the duration of movies to minutes
+function hoursToMinutes(array) {
+  //setting hours and minutes to 0 and declaration of newDuration
+  let hours = 0, minutes = 0, newDuration;
+  //same as before array.map for a new array and after that
+  //split to separate the time strings 
+  let result = array.map(movie => {
+    newDuration = movie.duration.split(" ");
+    //parseInt for the diferents times
+    hours = parseInt(newDuration[0]);
+    minutes = parseInt(newDuration[1]);
+    //condition for set minutes to 0
+    if (newDuration.length == 1){
+      minutes = 0;
+    }
+    //total of time to change the hours to minutes and add minutes
+    let total = hours * 60 + minutes;
+    //returning the new durations
+    return{
+      ...movie,
+      duration: total,
+    };
+
+  });
+  console.log('EXERCICE 7 ->', result);
+  return result;
+}
+
+// Level 3 -> Exercise 8: Get the best film of a year
+function bestFilmOfYear(array, year) {
+
+  let result = [];
+  console.log('EXERCICE 8 ->', result);
+  return result;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
