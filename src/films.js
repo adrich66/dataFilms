@@ -70,8 +70,26 @@ function orderByYear(array) {
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {}
+function moviesAverageByCategory(array, genre) {
 
+  //after copied and adapted all the exercise 3 it's needed
+  //to have and if condition for the movies without score
+  let filtered = array.filter((movies) =>{
+    if (movies.genre.includes(genre) && movies.score != false) {
+      return movies;
+    }
+  });
+  const initial = 0;
+  let result =
+    (Math.round((
+    filtered.reduce((previous, number) => previous + number.score, initial) /
+    filtered.length)*100)/100);
+
+  console.log('EXERCICE 6 ->', result);
+  return result;
+}
+
+//Level 2!!
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {}
 
