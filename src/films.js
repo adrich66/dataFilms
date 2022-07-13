@@ -31,7 +31,12 @@ function moviesAverageOfDirector(array, director) {
     filtered.length)*100)/100);
   //Math.round to round out the result with two decimals 
   //but for accurate number -> *100 before and /100 after
-  
+  /*ALTENATIVA
+      const moviesAverageOfDirector = (movies, searcheddirector) => {
+        let scores = getMoviesFromDirector(movies, searcheddirector).map((movie) => movie.score);
+        return scores.reduce((a, b) => a + b) / scores.length;
+      };
+  */
   console.log('EXERCICE 3 ->', result);
   return result;
 }
@@ -114,6 +119,26 @@ function hoursToMinutes(array) {
     };
 
   });
+/*ALTENATIVA
+const hoursToMinutes = (movies) => {
+     let result = movies.map((movie) => {
+         let stringDuration = movie.duration;
+         let indexHours = stringDuration.indexOf('h');
+         let indexMinutes = stringDuration.indexOf('min');
+         let hours = parseInt(stringDuration.substr(0, indexHours).trim());
+         let minutes = 0;
+         if (stringDuration.indexOf('min') !== -1) {
+              minutes = parseInt(stringDuration.substr(indexHours + 1, indexMinutes).trim());
+         }
+         let newDuration = {
+             duration: hours * 60 + minutes
+         };
+         return newDuration;
+     });
+     return result;
+};
+*/
+
   console.log('EXERCICE 7 ->', result);
   return result;
 }
